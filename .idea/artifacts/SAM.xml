@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SAM">
+    <output-path>$PROJECT_DIR$/out/artifacts/SAM</output-path>
+    <root id="archive" name="SAM.jar">
+      <element id="archive" name="SAM_System_4.jar">
+        <element id="module-output" name="SAM_System_4" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:17.0.6" />
+      <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.16" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:17.0.6" />
+      <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.32" />
+      <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.33" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:17.0.6" />
+      <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
+      <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.21.9" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:17.0.6" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:17.0.6" />
+      <element id="library" level="project" name="Maven: org.jetbrains:annotations:24.1.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:win:17.0.6" />
+    </root>
+  </artifact>
+</component>

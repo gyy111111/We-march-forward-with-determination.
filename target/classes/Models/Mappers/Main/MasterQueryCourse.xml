@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.MasterQueryCourse">
+
+    <select id="selectAllCourse_class1" resultType="Models.Entities.course">
+        select * from class1table where class_week = #{arg0};
+    </select>
+    <select id="selectAllCourse_class2" resultType="Models.Entities.course">
+        select * from class2table where class_week = #{arg0};
+    </select>
+    <select id="selectAllCourseClass1" resultType="Models.Entities.course">
+        select * from class1table;
+    </select>
+    <select id="selectAllCourseClass2" resultType="Models.Entities.course">
+        select * from class2table;
+    </select>
+</mapper>

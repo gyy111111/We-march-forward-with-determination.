@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--设置连接数据库的环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:13306/project"/>
+                <property name="username" value="root"/>
+                <property name="password" value="anquse22"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--定义mapper.xml文件的位置和类型;-->
+    <mappers>
+        <!--这个是学生登录用的数据库接口:-->
+        <mapper resource="Models/Mappers/Login/studentLogin.xml"/>
+        <!--这个是学生退出登录用的数据库接口:-->
+        <mapper resource="Models/Mappers/Main/StudentExit.xml"/>
+        <!--这个是管理员登录用的数据库:-->
+        <mapper resource="Models/Mappers/Login/masterLogin.xml"/>
+        <!--这个是管理员退出登录用的数据库:-->
+        <mapper resource="Models/Mappers/Main/MasterExit.xml"/>
+        <!--这个是管理员管理学生信息用的接口:-->
+        <mapper resource="Models/Mappers/Main/MasterStudentQuery.xml"/>
+        <!--这个是管理员添加学生信息用的接口:-->
+        <mapper resource="Models/Mappers/Main/MasterAddStudent.xml"/>
+        <!--这个是管理员修改和删除学生信息用的接口:-->
+        <mapper resource="Models/Mappers/Main/MasterUpdateAndDeleteStudent.xml"/>
+        <!--这个是管理员查询课程信息用的接口:-->
+        <mapper resource="Models/Mappers/Main/MasterQueryCourse.xml"/>
+        <!--这个是管理员考勤信息初始化接口:-->
+        <mapper resource="Models/Mappers/Main/MasterInitStudentDailyMessage_SQL.xml"/>
+        <!--这个是管理员用来统计信息的接口-->
+        <mapper resource="Models/Mappers/Main/MasterStatisticalMessage.xml"/>
+    </mappers>
+</configuration>

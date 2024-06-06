@@ -1,0 +1,55 @@
+1.项目目录结构为Maven结构,能够双向导入IDEA和Eclipse中,导入方法相同.
+2.在Eclipse中,想要运行启动项目,首先确保:
+(1):本机安装了Maven,且和自己使用的IDE进行了Maven仓库的绑定,进行了Maven中下载数据源的配置;
+(2):本机需要安装MySQL数据库,
+-->1.安装了5.*.**版本的数据库,注意!需要在这个项目的pom.xml配置文件中,将
+<dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
+</dependency>
+更改为:
+<dependency>
+   <groupId>mysql</groupId>
+   <artifactId>mysql-connector-java</artifactId>
+   <version>5.1.49</version>
+</dependency>
+并且:将
+src/main/resources/MyBatisConfigration.xml
+这个位置的<environments default="development">
+             <environment id="development">
+                 <transactionManager type="JDBC"/>
+                 <dataSource type="POOLED">
+                     <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                     <property name="url"
+                               value="jdbc:mysql://************:3306/project"/>
+                     <property name="username" value="****"/>
+                     <property name="password" value="******"/>
+                 </dataSource>
+             </environment>
+         </environments>
+更改为自己的数据库地址:
+其中:整个项目使用的数据库文件:已经提供在了src/main/项目导入使用必读.txt
+里面,只需要通过命令行(管理员登录数据库)执行
+source /xxx/project.sql;就能够将数据库复制在机器上;
+-->安装了8.*.**则不需要更改配置文件;
+同样需要执行:
+src/main/resources/MyBatisConfigration.xml
+这个位置的<environments default="development">
+             <environment id="development">
+                 <transactionManager type="JDBC"/>
+                 <dataSource type="POOLED">
+                     <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                     <property name="url"
+                               value="jdbc:mysql://***********:3306/project"/>
+                     <property name="username" value="*******"/>
+                     <property name="password" value="******"/>
+                 </dataSource>
+             </environment>
+         </environments>
+更改为自己的数据库地址:
+其中:整个项目使用的数据库文件:已经提供在了src/main/项目导入使用必读.txt
+里面,只需要通过命令行(管理员登录数据库)执行
+
+这个上面的数据库估计再过不久就会到期,还是最好用本地的,更快,没有传输时延;
+

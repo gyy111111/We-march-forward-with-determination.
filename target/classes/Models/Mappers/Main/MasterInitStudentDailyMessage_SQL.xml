@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.MasterInitStudentDailyMessage_SQL">
+
+    <insert id="insertStudentDailyMessage">
+        insert into message (school_id, student_name, class_message, class_name, class_time, class_id, code_type,class_week, date)
+        values (#{arg0}, #{arg1}, #{arg2},#{arg3},#{arg4},#{arg5}, #{arg6},#{arg7},#{arg8});
+    </insert>
+    <update id="updateStudentAttendanceMessage">
+        update message set code_type=#{arg0} where school_id=#{arg1} and class_id=#{arg2} and date=#{arg3};
+    </update>
+    <delete id="deleteStudentDailyMessage">
+        delete from message where school_id in
+        <foreach collection="list" item="schoolId" open="(" separator="," close=")">
+            #{schoolId}
+        </foreach>
+    </delete>
+    <select id="CheckStudentDailyMessage" resultType="Models.Entities.attendanceMessage">
+        select * from message where date= #{arg0};
+    </select>
+    <select id="selectALLStudentDailyMessage" resultType="Models.Entities.attendanceMessage">
+        select * from message where date= #{arg0} ;
+    </select>
+    <select id="selectStudentDailyMessageByClass" resultType="Models.Entities.attendanceMessage">
+        select * from message where class_message= #{arg0} and date= #{arg1};
+    </select>
+    <select id="selectAllAttendanceMessage" resultType="Models.Entities.attendanceMessage">
+        select * from message;
+    </select>
+    <select id="selectStudentDailyMessageById" resultType="Models.Entities.attendanceMessage">
+        select * from message where school_id= #{arg0};
+    </select>
+    <select id="selectAll" resultType="Models.Entities.attendanceMessage">
+
+    </select>
+</mapper>

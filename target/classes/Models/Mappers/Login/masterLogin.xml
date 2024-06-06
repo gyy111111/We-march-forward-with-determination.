@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Login.masterLogin">
+
+    <update id="updateMaster">
+        update masterall set login_code=1 where work_id=#{arg0};
+    </update>
+
+    <select id="LoginSelect" resultType="Models.Entities.Master">
+        select * from masterall where work_id=#{arg0} and passwords=#{arg1};
+    </select>
+
+ </mapper>

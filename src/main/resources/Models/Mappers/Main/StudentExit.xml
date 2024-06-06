@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.StudentExit">
+
+    <!--更改登录状态:-->
+    <update id="updateStudent">
+        update studentall set login_code=0 where school_id=#{arg0};
+    </update>
+    <update id="UpdateStudentPasswords">
+        update studentall set passwords=#{arg1} where school_id=#{arg0};
+    </update>
+
+</mapper>

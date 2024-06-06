@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.MasterStatisticalMessage">
+
+    <select id="selectByChooseWeek" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where class_message in (#{arg0})
+        and class_name = #{arg1}
+        and  date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 WEEK) AND CURDATE();
+    </select>
+    <select id="selectByChooseMonth" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where class_message in (#{arg0})
+          and class_name = #{arg1}
+          and date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE();
+    </select>
+    <select id="selectByChooseAll" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where class_message in (#{arg0})
+          and class_name = #{arg1};
+    </select>
+    <select id="selectForAllStudentWeek" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where class_name = #{arg0}
+          and  date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 WEEK) AND CURDATE();
+    </select>
+    <select id="selectForAllStudentMonth" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where class_name = #{arg0}
+          and date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE();
+    </select>
+    <select id="selectForAllStudentAll" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where class_name = #{arg0};
+    </select>
+    <select id="selectByStudentExist_Week" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where student_name = #{arg0}
+          and class_name = #{arg1}
+          and date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 WEEK) AND CURDATE();
+    </select>
+    <select id="selectByStudentExist_Month" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where student_name = #{arg0}
+          and class_name = #{arg1}
+          and date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 MONTH) AND CURDATE();
+    </select>
+    <select id="selectByStudentExist_All" resultType="Models.Entities.attendanceMessage">
+        select *
+        from message
+        where student_name = #{arg0}
+          and class_name = #{arg1};
+    </select>
+    <select id="selectByStudentPossible" resultType="Models.Entities.student">
+        select *
+        from studentall
+        where name like concat('%',#{arg0},'%');
+    </select>
+</mapper>

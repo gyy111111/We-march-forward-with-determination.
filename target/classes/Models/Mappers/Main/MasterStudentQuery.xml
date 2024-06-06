@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.MasterStudentQuery">
+    <!--查询所有的学生信息:用来初始化展示学生信息-->
+    <select id="selectAllStudent" resultType="Models.Entities.student">
+        select *
+        from studentall;
+    </select>
+    <select id="selectStudentById" resultType="Models.Entities.student">
+        select *
+        from studentall
+        where school_id = #{arg0};
+    </select>
+    <select id="selectClass1Student" resultType="Models.Entities.student">
+        select *
+        from studentall
+        where classMessage = 1;
+    </select>
+    <select id="selectClass2Student" resultType="Models.Entities.student">
+        select *
+        from studentall
+        where classMessage = 2;
+    </select>
+    <select id="selectStudentByList" resultType="Models.Entities.student">
+        select *
+        from studentall
+        where school_id in
+        <foreach collection="list" item="schoolId" open="(" separator="," close=")">
+            #{schoolId}
+        </foreach>
+    </select>
+
+
+</mapper>

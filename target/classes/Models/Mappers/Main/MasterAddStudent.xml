@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.MasterAddStudent">
+
+    <insert id="addStudent">
+        insert into studentall (school_id, name, gender, age, classMessage, passwords, login_code) values (#{arg0}, #{arg1}, #{arg2}, #{arg3}, #{arg4}, #{arg5}, 0);
+    </insert>
+</mapper>

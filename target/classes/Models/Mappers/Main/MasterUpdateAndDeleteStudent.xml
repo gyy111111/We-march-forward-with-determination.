@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.MasterUpdateAndDeleteStudent">
+    <!--更新学生信息:-->
+    <update id="updateStudent">
+        update studentall set passwords='12345678' where school_id in
+        <foreach collection="list" item="schoolId" open="(" separator="," close=")">
+            #{schoolId}
+        </foreach>
+
+    </update>
+    <!--删除学生信息:-->
+    <delete id="deleteStudent">
+        delete from studentall where school_id in
+         <foreach collection="list" item="schoolId" open="(" separator="," close=")">
+            #{schoolId}
+        </foreach>
+    </delete>
+    <!-- 其中:index="index,表示的是:-->
+</mapper>

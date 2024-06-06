@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Models.Mappers.Main.MasterExit">
+    <!--更改登录状态:-->
+    <update id="updateMaster">
+        update masterall set login_code=0 where work_id=#{arg0};
+    </update>
+</mapper>
